@@ -1,4 +1,4 @@
-package org.mevaristo.app.model
+package org.mevaristo.app.domain.model
 
 import java.time.LocalDate
 

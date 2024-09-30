@@ -5,8 +5,9 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
-import org.mevaristo.app.model.PricePoint
-import org.mevaristo.app.model.Rate
+import org.mevaristo.app.domain.model.PricePoint
+import org.mevaristo.app.domain.model.Rate
+import org.mevaristo.app.domain.service.RateCalculatorService
 import java.time.LocalDate
 import java.util.stream.Stream
 import kotlin.test.assertEquals

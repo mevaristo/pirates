@@ -1,7 +1,7 @@
-package org.mevaristo.app.service
+package org.mevaristo.app.domain.service
 
-import org.mevaristo.app.model.PricePoint
-import org.mevaristo.app.model.Rate
+import org.mevaristo.app.domain.model.PricePoint
+import org.mevaristo.app.domain.model.Rate
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
 import kotlin.math.abs
