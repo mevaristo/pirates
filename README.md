@@ -2,6 +2,6 @@
 
 ## About
 
-Calculate historical value variations of products based on custom criteria 
-such as mean income, minimum wage or another product. 
+Calculate historical value variations of subjects based on custom criteria 
+such as mean income, minimum wage or a product. 
 
