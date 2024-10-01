@@ -1,11 +1,8 @@
 package org.mevaristo.app.domain.service
 
-import org.mevaristo.app.domain.model.TimeSeriesEntry
 import org.mevaristo.app.domain.model.Rate
 import org.mevaristo.app.domain.model.TimeSeries
-import java.time.LocalDate
-import java.time.temporal.ChronoUnit
-import kotlin.math.abs
+import org.mevaristo.app.domain.model.TimeSeriesEntry
 
 /**
  * Class representing a service responsible for rating functionality

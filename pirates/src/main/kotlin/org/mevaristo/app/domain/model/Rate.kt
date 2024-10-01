@@ -45,8 +45,6 @@ class TimeSeries(): TreeMap<LocalDate, Double>(comparator) {
     }
 
     fun getAdjacentAfter(localDate: LocalDate): TimeSeriesEntry? {
-        var closerDateScore: Int = 1
-
         return this.getAsEntry(
             this.keys.stream().filter { thisDate ->
                 thisDate > localDate
