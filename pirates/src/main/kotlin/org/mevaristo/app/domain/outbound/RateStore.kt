@@ -1,8 +1,8 @@
-package org.mevaristo.app.domain.port
+package org.mevaristo.app.domain.outbound
 
 import org.mevaristo.app.domain.model.Rate
 
-interface RateManagerPort {
+interface RateStore {
     fun getRate(label: String): Rate
 
     fun saveRate(rate: Rate)
