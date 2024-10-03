@@ -1,8 +1,7 @@
 package org.mevaristo.app.domain.service
 
 import org.mevaristo.app.domain.model.Rate
-import org.mevaristo.app.domain.model.TimeSeries
-import org.mevaristo.app.domain.model.TimeSeriesEntry
+import org.mevaristo.app.domain.model.Rate.TimeSeries.TimeSeriesEntry
 
 /**
  * Class representing a service responsible for rating functionality
@@ -28,11 +27,11 @@ class RateService {
 
         return Rate(
             rateName,
-            TimeSeries.of(ratedSubjectTimeSeries),
+            Rate.TimeSeries.of(ratedSubjectTimeSeries),
         )
     }
 
-    private fun rateTimeSeriesEntry(timeSeriesEntry: TimeSeriesEntry, rateAgainstTimeSeries: TimeSeries):
+    private fun rateTimeSeriesEntry(timeSeriesEntry: TimeSeriesEntry, rateAgainstTimeSeries: Rate.TimeSeries):
             TimeSeriesEntry {
         val entry =
             if (rateAgainstTimeSeries.getAsEntry(timeSeriesEntry.date) != null)

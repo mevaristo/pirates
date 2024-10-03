@@ -6,12 +6,13 @@ import java.time.LocalDate
 import java.util.stream.Stream
 import kotlin.test.assertNotNull
 import kotlin.test.assertTrue
+import org.mevaristo.app.domain.model.Rate.TimeSeries.TimeSeriesEntry
 
 class RateTest {
     companion object {
         @JvmStatic
         fun rateProvider(): Stream<Rate> = Stream.of(
-            Rate("a", TimeSeries.of(
+            Rate("a", Rate.TimeSeries.of(
                 listOf(
                     TimeSeriesEntry(LocalDate.of(2000, 2, 2), .0),
                     TimeSeriesEntry(LocalDate.of(1999, 2, 2), .0),
@@ -21,7 +22,7 @@ class RateTest {
                     TimeSeriesEntry(LocalDate.of(2003, 2, 2), .0),
                 )
             )),
-            Rate("b", TimeSeries.of(
+            Rate("b", Rate.TimeSeries.of(
                 listOf(
                     TimeSeriesEntry(LocalDate.of(2000, 2, 2), .2),
                     TimeSeriesEntry(LocalDate.of(2000, 2, 5), .3),
@@ -30,7 +31,7 @@ class RateTest {
                     TimeSeriesEntry(LocalDate.of(2003, 2, 2), .6),
                 )
             )),
-            Rate("c", TimeSeries.of(
+            Rate("c", Rate.TimeSeries.of(
                 listOf(
                     TimeSeriesEntry(LocalDate.of(2011, 2, 2), .1),
                     TimeSeriesEntry(LocalDate.of(1999, 2, 2), .0),

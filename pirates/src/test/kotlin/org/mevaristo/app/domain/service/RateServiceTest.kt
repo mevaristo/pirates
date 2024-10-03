@@ -5,8 +5,7 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
 import org.mevaristo.app.domain.model.Rate
-import org.mevaristo.app.domain.model.TimeSeries
-import org.mevaristo.app.domain.model.TimeSeriesEntry
+import org.mevaristo.app.domain.model.Rate.TimeSeries.TimeSeriesEntry
 import java.time.LocalDate
 import java.util.stream.Stream
 import kotlin.test.assertEquals
@@ -19,14 +18,14 @@ class RateServiceTest {
         @JvmStatic
         fun valuePointProvider(): Stream<Arguments> = Stream.of(
             Arguments.of(
-                Rate("a(same date)", TimeSeries.of(
+                Rate("a(same date)", Rate.TimeSeries.of(
                     listOf(
                         TimeSeriesEntry(LocalDate.of(2000, 1, 1), 1.0),
                         TimeSeriesEntry(LocalDate.of(2001, 1, 1), 2.0),
                         TimeSeriesEntry(LocalDate.of(2002, 1, 1), 3.0),
                     )
                 )),
-                Rate("b(same date)", TimeSeries.of(
+                Rate("b(same date)", Rate.TimeSeries.of(
                     listOf(
                         TimeSeriesEntry(LocalDate.of(2000, 1, 1), .5),
                         TimeSeriesEntry(LocalDate.of(2001, 1, 1), .6),
@@ -39,13 +38,13 @@ class RateServiceTest {
                     TimeSeriesEntry(LocalDate.of(2002, 1, 1), 3.0/.7),
                 )),
             Arguments.of(
-                Rate("a(between)", TimeSeries.of(
+                Rate("a(between)", Rate.TimeSeries.of(
                     listOf(
                         TimeSeriesEntry(LocalDate.of(2000, 1, 1), 1.0),
                         TimeSeriesEntry(LocalDate.of(2002, 1, 1), 3.0),
                     )
                 )),
-                Rate("b(surrounding)", TimeSeries.of(
+                Rate("b(surrounding)", Rate.TimeSeries.of(
                     listOf(
                         TimeSeriesEntry(LocalDate.of(1999, 1, 1), .5),
                         TimeSeriesEntry(LocalDate.of(2001, 1, 1), .6),
@@ -58,7 +57,7 @@ class RateServiceTest {
                     TimeSeriesEntry(LocalDate.of(2002, 1, 1), 3.0/0.6),
                 )),
             Arguments.of(
-                Rate("a(before-after gap)", TimeSeries.of(
+                Rate("a(before-after gap)", Rate.TimeSeries.of(
                     listOf(
                         TimeSeriesEntry(LocalDate.of(2000, 1, 1), 1.0),
                         TimeSeriesEntry(LocalDate.of(2001, 1, 1), 2.0),
@@ -66,7 +65,7 @@ class RateServiceTest {
                         TimeSeriesEntry(LocalDate.of(2003, 1, 1), 4.0),
                     )
                 )),
-                Rate("b(before-after gap)", TimeSeries.of(
+                Rate("b(before-after gap)", Rate.TimeSeries.of(
                     listOf(
                         TimeSeriesEntry(LocalDate.of(2001, 1, 1), 0.5),
                         TimeSeriesEntry(LocalDate.of(2002, 6, 1), 0.6),
@@ -79,14 +78,14 @@ class RateServiceTest {
                     TimeSeriesEntry(LocalDate.of(2003, 1, 1), 4.0/0.6),
                 )),
             Arguments.of(
-                Rate("a(only)", TimeSeries.of(
+                Rate("a(only)", Rate.TimeSeries.of(
                     listOf(
                         TimeSeriesEntry(LocalDate.of(2000, 12, 1), 1.0),
                         TimeSeriesEntry(LocalDate.of(2005, 6, 1), 1.0),
                         TimeSeriesEntry(LocalDate.of(2010, 12, 1), 1.0),
                     )
                 )),
-                Rate("b(only)", TimeSeries.of(
+                Rate("b(only)", Rate.TimeSeries.of(
                     listOf(
                         TimeSeriesEntry(LocalDate.of(2005, 6, 1), 0.5),
                     )
