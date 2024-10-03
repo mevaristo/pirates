@@ -34,12 +34,12 @@ class RateService {
     private fun rateTimeSeriesEntry(timeSeriesEntry: TimeSeriesEntry, rateAgainstTimeSeries: Rate.TimeSeries):
             TimeSeriesEntry {
         val entry =
-            if (rateAgainstTimeSeries.getAsEntry(timeSeriesEntry.date) != null)
-                rateAgainstTimeSeries.getAsEntry(timeSeriesEntry.date)
+            if (rateAgainstTimeSeries.getAsEntry(timeSeriesEntry.dateTime) != null)
+                rateAgainstTimeSeries.getAsEntry(timeSeriesEntry.dateTime)
             else
-                rateAgainstTimeSeries.getAdjacentBefore(timeSeriesEntry.date)
+                rateAgainstTimeSeries.getAdjacentBefore(timeSeriesEntry.dateTime)
 
-        return TimeSeriesEntry(timeSeriesEntry.date, timeSeriesEntry.value /
+        return TimeSeriesEntry(timeSeriesEntry.dateTime, timeSeriesEntry.value /
                 (entry?.value ?: 1.0))
     }
 }
