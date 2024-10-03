@@ -1,10 +1,8 @@
 package org.mevaristo.app.api
 
-import org.springframework.stereotype.Controller
+import org.springframework.web.bind.annotation.RestController
 
-@Controller
+@RestController
 class RateRestController {
-    fun home(): String {
-        return "Welcome to pirates API"
-    }
+
 }
